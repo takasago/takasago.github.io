@@ -14,7 +14,7 @@ html {
 }
 body {
 	font-family: sans-serif;
-	min-width: 960px;
+	/* min-width: 960px; */
 	background: #fff;
 }
 p {
