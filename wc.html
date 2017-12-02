@@ -49,7 +49,7 @@
 		navigator.getUserMedia	= navigator.getUserMedia		|| navigator.webkitGetUserMedia ||
 															navigator.mozGetUserMedia || navigator.msGetUserMedia;
 
-		var peer = new Peer({key: 'e417d620-09f3-439a-9582-cd37d19b074a'}); // PeerJSのサイトで取得したAPI keyを設定
+		var peer = new Peer({key: 'e417d620-09f3-439a-9582-cd37d19b074a', authToken: 'yK8PBvdRSuaJck0RhuqU1J8xTp8yVYtL'}); // PeerJSのサイトで取得したAPI keyを設定
 
 		peer.on('open', function(id){
 			$('#peer-id').text(id);
