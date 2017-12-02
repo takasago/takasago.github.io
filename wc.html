@@ -58,7 +58,7 @@
 		});
 		peer.on('call', function(call){
 			call.answer(localStream);
-
+        console.log('peer.on: call answer');
 			call.on('stream', function(othersStream){
 				$('#remote_video').prop('src', URL.createObjectURL(othersStream));
 			});
@@ -133,6 +133,7 @@
 		}
 
 		function callTo(peerId){
+    		console.log('callTo: ' + peerId);
 			var call = peer.call(peerId, localStream);
 
 			call.on('stream', function(othersStream){
