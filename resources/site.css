@@ -89,7 +89,7 @@ form textarea {
 header {
   width: 100%;
   height: 22px;
-  background-color: #ceee00;
+  background-color: #eece00;
 }
 header h1 a {
   font-weight: bold;
@@ -106,13 +106,16 @@ header h1 a {
 }
 #dialer dl {
   width: 80%;
+  padding-left: 2em;
 }
 #dialer dt {
+  text-indent: 0;
   float: left;
   clear: left;
   width: 6em;
 }
 #dialer dd {
+  text-indent: 0;
   float: left;
 }
 #controller {
