@@ -112,10 +112,10 @@ header h1 a {
 #content dd {
   float: left;
 }
-#content #controller {
+#content#controller {
   display: none;
 }
-#content #color_bar, #content #color_bar #local_video {
+#content.color_bar, #content#local_video {
   width: 160px;
   height: 120px;
   border: 1px solid black;
