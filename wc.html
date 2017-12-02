@@ -50,7 +50,7 @@
 		navigator.getUserMedia	= navigator.getUserMedia		|| navigator.webkitGetUserMedia ||
 															navigator.mozGetUserMedia || navigator.msGetUserMedia;
 
-		var peer = new Peer({key: 'peerjs', host: 'v2.backspace.jp', port: 9000});
+		var peer = new Peer({key: 'peerjs', host: 'v2.backspace.jp', port: 9000, sslkey: '/etc/letsencrypt/live/v2.backspace.jp/privkey.pem', sslcert: '/etc/letsencrypt/live/v2.backspace.jp/fullchain.pem'});
 
 		peer.on('open', function(id){
 			$('#peer-id').text(id);
