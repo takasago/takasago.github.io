@@ -50,7 +50,7 @@
 		navigator.getUserMedia	= navigator.getUserMedia		|| navigator.webkitGetUserMedia ||
 															navigator.mozGetUserMedia || navigator.msGetUserMedia;
 
-		var peer = new Peer({key: 'peerjs', host: 'v2.backspace.jp', port: 9000, path: '/peerjs'});
+		var peer = new Peer(getRandomString(), {key: 'peerjs', host: 'v2.backspace.jp', port: 9000, path: '/peerjs'});
 
 		peer.on('open', function(id){
 			$('#peer-id').text(id);
@@ -140,5 +140,21 @@
 				$('#remote_video').prop('src', URL.createObjectURL(othersStream));
 			});
 		}
+
+      // ランダムな文字列を生成する．
+      // @return  文字列 英字3文字＋秒(1−2桁)の組み合わせ
+      function getRandomString() {
+        // ランダムな文字列を生成する元の文字列
+        var BaseString ='abcdefghijklmnopqrstuvwxyz';
+        
+        var  randomString = "";
+        
+        for(var i =0; i<3; i++) {
+          randomString += BaseString[Math.floor(Math.random() * BaseString.length)];
+        }
+        
+        randomString += new Date().getSeconds();
+        return randomString;
+      }
 	</script>
 </html>
