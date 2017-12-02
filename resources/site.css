@@ -110,13 +110,17 @@ header h1 a {
 #dialer dt {
   float: left;
   clear: left;
-  width: 12em;
+  width: 6em;
 }
 #dialer dd {
   float: left;
 }
 #controller {
   display: none;
+}
+#camera img, #camera video {
+  margin: 0;
+  padding: 0;
 }
 #color_bar, #local_video {
   width: 160px;
