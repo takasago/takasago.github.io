@@ -1,26 +1,3 @@
-let localVideo = document.getElementById('local_video');
-let remoteVideo = document.getElementById('remote_video');
-let localStream = null;
-
-navigator.getUserMedia	= navigator.getUserMedia		|| navigator.webkitGetUserMedia ||
-													navigator.mozGetUserMedia || navigator.msGetUserMedia;
-
-var peer = new Peer(getRandomString(), {key: 'peerjs', host: 'v2.backspace.jp', port: 9000, path: '/peerjs'});
-
-peer.on('open', function(id){
-	$('#peer-id').text(id);
-  // console.log(id);
-});
-peer.on('call', function(call){
-	call.answer(localStream);
-      console.log('peer.on: call answer');
-	call.on('stream', function(othersStream){
-		$('#remote_video').prop('src', URL.createObjectURL(othersStream));
-	});
-});
-
-startVideo();
-
 // start local video
 function startVideo() {
 	getDeviceStream({video: true, audio: false})

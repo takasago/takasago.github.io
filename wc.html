@@ -43,5 +43,29 @@
 		<footer id="site_footer">
 			<p id="copyright">Copyright &copy; <a href="http://backspace.jp/" target="_blank">Backspace Dev-Team</a>, 2017-. All rights reserved.</p>
 		</footer>
-	</body>
+  </body>
+  <script type="text/javascript">
+    let localVideo = document.getElementById('local_video');
+    let remoteVideo = document.getElementById('remote_video');
+    let localStream = null;
+    
+    navigator.getUserMedia	= navigator.getUserMedia		|| navigator.webkitGetUserMedia ||
+    													navigator.mozGetUserMedia || navigator.msGetUserMedia;
+    
+    var peer = new Peer(getRandomString(), {key: 'peerjs', host: 'v2.backspace.jp', port: 9000, path: '/peerjs'});
+    
+    peer.on('open', function(id){
+    	$('#peer-id').text(id);
+      // console.log(id);
+    });
+    peer.on('call', function(call){
+    	call.answer(localStream);
+          console.log('peer.on: call answer');
+    	call.on('stream', function(othersStream){
+    		$('#remote_video').prop('src', URL.createObjectURL(othersStream));
+    	});
+    });
+    
+    startVideo();
+  </script>
 </html>
