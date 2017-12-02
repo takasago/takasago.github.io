@@ -4,8 +4,8 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="robots" content="all">
 		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-		<script type="text/javascript" src="./scripts/jquery.min.js"></script>
-		<script type="text/javascript" src="./scripts/peer.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script type="text/javascript" src="https://cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
 		<link rel="stylesheet" href="./resources/site.css" type="text/css" media="all"></link>
 		<title>Webcam</title>
 	</head>
@@ -49,7 +49,7 @@
 		navigator.getUserMedia	= navigator.getUserMedia		|| navigator.webkitGetUserMedia ||
 															navigator.mozGetUserMedia || navigator.msGetUserMedia;
 
-		var peer = new Peer({key: '0mrch13uzv6ajor'}); // PeerJSのサイトで取得したAPI keyを設定
+		var peer = new Peer({key: 'e417d620-09f3-439a-9582-cd37d19b074a'}); // PeerJSのサイトで取得したAPI keyを設定
 
 		peer.on('open', function(id){
 			$('#peer-id').text(id);
