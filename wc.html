@@ -22,7 +22,7 @@
 					<dt>Your ID</dt>
 						<dd><span id="peer-id"></span></dd>
 					<dt>Remote ID</dt>
-						<dd><input type="text" id="remote-peer-id" placeholder="Input remote ID." />&nbsp;<button id="call">Call</button></dd>
+						<dd><input type="text" id="remote-peer-id" placeholder="Input remote ID." />&nbsp;<button id="call" onClick="callTo($('remote-peer-id').text);">Call</button></dd>
 				</dl>
 			</section>
 			<section id="controller">
