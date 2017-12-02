@@ -1,0 +1,91 @@
+* {
+	-webkit-appearance: none;
+}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: inherit;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+html {
+	line-height: 1;
+}
+body {
+	font-family: sans-serif;
+	min-width: 960px;
+	background: #fff;
+}
+p {
+	line-height: 1.25em;
+}
+ol, ul {
+	list-style: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+caption, th, td {
+	text-align: left;
+	font-weight: normal;
+	vertical-align: middle;
+}
+q, blockquote {
+	quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+	content: "";
+	content: none;
+}
+a img {
+	border: none;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+	display: block;
+}
+div:after, ul:after, li:after, section:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.for_mb {
+	display: none;
+}
+.for_pc {
+	display: block;
+}
+
+form input[type=radio], form input[type=checkbox] {
+	border: 2px solid #ccc;
+	background-color: #fff;
+	width: 1rem;
+	height: 1rem;
+}
+form input[type=radio]:checked, form input[type=checkbox]:checked {
+	background-color: #f29600;
+}
+form input[type=text], form input[type=password], form textarea {
+	border: 2px solid #ccc;
+	background-color: #fff;
+	padding: 0.5rem;
+	font-size: 1rem;
+}
+form textarea {
+	width: 30rem;
+}
+
+#footer_ad {
+	background-color: #fff;
+	position: fixed;
+	margin: 0 auto;
+	padding: 0;
+	bottom: 0;
+	left: 0;
+	height: 60px;
+	width: 100%;
+	z-index: 150;
+	border-top: 2px solid #131939;
+}
