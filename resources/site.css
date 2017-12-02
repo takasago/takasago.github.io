@@ -121,9 +121,14 @@ header h1 a {
 #controller {
   display: none;
 }
+#camera {
+  margin-right: auto;
+  margin-left: auto;
+}
 #camera img, #camera video {
   margin: 0;
   padding: 0;
+  border: 0;
 }
 #color_bar, #local_video {
   width: 160px;
