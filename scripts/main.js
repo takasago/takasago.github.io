@@ -6,7 +6,7 @@ function startVideo() {
 		localStream = stream;
 		playVideo(localVideo, stream);
 	}).catch(function (error) { // error
-    	getDeviceStream({audio: false})
+    	getDeviceStream({})
     	.then(function (stream) { // success
     		localStream = stream;
     		playVideo(localVideo, stream);
