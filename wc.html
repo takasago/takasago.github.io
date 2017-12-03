@@ -94,7 +94,7 @@
     startVideo();
 
     if ('rid' in query) {
-    	$('#remote-peer-id').val = query['rid'];
+    	$('#remote-peer-id').text = query['rid'];
       callTo(query['rid']);
     }
   </script>
