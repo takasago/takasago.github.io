@@ -96,8 +96,9 @@
 
     if ('rid' in query) {
       rid = query['rid'];
+      console.log('main(): rid; ' + rid);
     	$('#remote-peer-id').text(rid);
-      callTo(rid);
+      // callTo(rid);
     }
   </script>
 </html>
