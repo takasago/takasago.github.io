@@ -86,7 +86,7 @@ function callTo(peerId){
 		$('#remote_video').prop('src', URL.createObjectURL(othersStream));
 	});
 
-	call.on('error', function(othersStream){
+	call.on('error', function(error){
   		console.error('callTo() error:', error);
   		return;
 	});
