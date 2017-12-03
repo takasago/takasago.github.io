@@ -1,5 +1,6 @@
 // start local video
 function startVideo() {
+  localStream = null;
 	getDeviceStream({video: true, audio: false})
 	.then(function (stream) { // success
 		localStream = stream;
