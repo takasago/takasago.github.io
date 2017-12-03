@@ -52,6 +52,7 @@
     navigator.getUserMedia	= navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 
     var id = getRandomString();
+    var rid = null;
     var query = getUrlVars();
     if ('id' in query) {
       id = query['id'];
@@ -94,8 +95,9 @@
     startVideo();
 
     if ('rid' in query) {
-    	$('#remote-peer-id').text(query['rid']);
-      callTo(query['rid']);
+      rid = query['rid'];
+    	$('#remote-peer-id').text(rid);
+      callTo(rid);
     }
   </script>
 </html>
