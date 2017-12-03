@@ -91,10 +91,11 @@
     	return;
     });
 
+    startVideo();
+
     if ('rid' in query) {
     	$('#remote-peer-id').val = query['rid'];
       callTo(query['rid']);
     }
-    startVideo();
   </script>
 </html>
