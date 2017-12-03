@@ -49,10 +49,14 @@
     let remoteVideo = document.getElementById('remote_video');
     let localStream = null;
     
-    navigator.getUserMedia	= navigator.getUserMedia		|| navigator.webkitGetUserMedia ||
-    													navigator.mozGetUserMedia || navigator.msGetUserMedia;
-    
-    var peer = new Peer(getRandomString(), {key: 'peerjs', host: 'v2.backspace.jp', port: 9000, path: '/peerjs'});
+    navigator.getUserMedia	= navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+
+    var id = getRandomString();
+    var query = getUrlVars();
+    if (query['id'] != '') {
+      id = query['id'];
+    }
+    var peer = new Peer(id, {key: 'peerjs', host: 'v2.backspace.jp', port: 9000, path: '/peerjs'});
     
     peer.on('open', function(id){
     	$('#peer-id').text(id);
