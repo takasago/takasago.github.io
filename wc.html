@@ -90,7 +90,11 @@
     	console.error('main().peer.on error:', error);
     	return;
     });
-    
+
+    if ('rid' in query) {
+    	$('#remote-peer-id').val = query['rid'];
+      callTo(query['rid']);
+    }
     startVideo();
   </script>
 </html>
