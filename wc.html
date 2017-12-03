@@ -62,6 +62,15 @@
     	$('#peer-id').text(id);
       // console.log(id);
     });
+    peer.on('close', function(){
+      console.log('main().peer.on; close');
+    });
+    peer.on('connection', function(call){
+      console.log('main().peer.on; connection');
+    });
+    peer.on('disconnected', function(call){
+      console.log('main().peer.on; disconnected');
+    });
     peer.on('call', function(call){
       if (localStream == null) {
        	call.answer();
