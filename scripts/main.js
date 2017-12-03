@@ -6,12 +6,12 @@ function startVideo() {
 		localStream = stream;
 		playVideo(localVideo, stream);
 	}).catch(function (error) { // error
-    	getDeviceStream({video: false, audio: false})
+    	getDeviceStream({audio: false})
     	.then(function (stream) { // success
     		localStream = stream;
     		playVideo(localVideo, stream);
     	}).catch(function (error) { // error
-    		console.error('getUserMedia error:', error);
+    		console.error('getUserMedia() error:', error);
     		return;
     	});
 		// console.error('getUserMedia error:', error);
