@@ -12,11 +12,12 @@ function startVideo() {
     		playVideo(localVideo, stream);
     	}).catch(function (error) { // error
     		console.error('getUserMedia() error:', error);
-    		return;
+    		return false;
     	});
 		// console.error('getUserMedia error:', error);
 		// return;
 	});
+	return true;
 }
 // stop local video
 function stopVideo() {

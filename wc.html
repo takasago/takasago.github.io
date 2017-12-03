@@ -92,13 +92,16 @@
     	return;
     });
 
-    startVideo();
-
     if ('rid' in query) {
       rid = query['rid'];
       console.log('main(): rid; ' + rid);
     	$('#remote-peer-id').val(rid);
-      $('#call').trigger('click');
+    }
+
+    if (startVideo()) {
+      if ($('#remote-peer-id').val() != '') {
+        $('#call').trigger('click');
+      }
     }
   </script>
 </html>
