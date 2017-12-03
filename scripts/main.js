@@ -82,12 +82,18 @@ function callTo(peerId){
    	var call = peer.call(peerId, localStream);
    }
 
+   call.on('open', function(id) {
+     console.log('callTo().call.on: ' + id);
+   });
 	call.on('stream', function(othersStream){
 		$('#remote_video').prop('src', URL.createObjectURL(othersStream));
 	});
+   call.on('close', function() {
+     console.log('callTo().call.on: close');
+   });
 
 	call.on('error', function(error){
-  		console.error('callTo() error:', error);
+  		console.error('callTo().call.on error:', error);
   		return;
 	});
 }
