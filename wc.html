@@ -68,9 +68,13 @@
       } else {
        	call.answer(localStream);
       }
-          console.log('peer.on: call answer');
-    	call.on('stream', function(othersStream){
+      console.log('peer.on: call answer');
+      call.on('stream', function(othersStream){
     		$('#remote_video').prop('src', URL.createObjectURL(othersStream));
+    	});
+    	call.on('error', function(othersStream){
+      	console.error('main() error:', error);
+      	return;
     	});
     });
     
