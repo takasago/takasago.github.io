@@ -80,7 +80,7 @@ function callTo(peerId){
    	console.log('callTo(): ' + 'null');
    	var conn = peer.connect(peerId);
 
-      conn.on('open', function(id)) {
+      conn.on('open', function(id) {
        console.log('callTo().conn.on: ' + id);
       }
       conn.on('close', function() {
