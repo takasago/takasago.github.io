@@ -31,6 +31,8 @@
 				<ul>
 					<li><button type="button" onclick="startVideo();">▶</button></li>
 					<li><button type="button" onclick="stopVideo();">■</button></li>
+              <li><input type="text" id="local_data"></input></li>
+              <li><input type="text" id="remote_data"></input></li>
 				</ul>
 			</section>
 			<section id="camera">
@@ -47,8 +49,10 @@
   <script type="text/javascript">
     let localVideo = document.getElementById('local_video');
     let remoteVideo = document.getElementById('remote_video');
+    let localData = $('#local_data');
+    let remoteData = $('#remote_data');
     let localStream = null;
-    
+
     navigator.getUserMedia	= navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 
     var id = getRandomString();
@@ -67,10 +71,13 @@
     peer.on('close', function(){
       console.log('main().peer.on; close');
     });
-    peer.on('connection', function(call){
+    peer.on('connection', function(connection){
       console.log('main().peer.on; connection');
+      connection.on('data', function(data) {
+        $('#remote_data').innerText = data;
+      });
     });
-    peer.on('disconnected', function(call){
+    peer.on('disconnected', function(){
       console.log('main().peer.on; disconnected');
     });
     peer.on('call', function(call){
