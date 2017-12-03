@@ -6,8 +6,16 @@ function startVideo() {
 		localStream = stream;
 		playVideo(localVideo, stream);
 	}).catch(function (error) { // error
-		console.error('getUserMedia error:', error);
-		return;
+    	getDeviceStream({video: false, audio: false})
+    	.then(function (stream) { // success
+    		localStream = stream;
+    		playVideo(localVideo, stream);
+    	}).catch(function (error) { // error
+    		console.error('getUserMedia error:', error);
+    		return;
+    	});
+		// console.error('getUserMedia error:', error);
+		// return;
 	});
 }
 // stop local video
@@ -68,6 +76,7 @@ function pauseVideo(element) {
 function callTo(peerId){
   	console.log('callTo: ' + peerId);
   	if (localStream == null) {
+   	console.log('callTo(): ' + 'null');
    	var call = peer.call(peerId);
   	} else {
    	var call = peer.call(peerId, localStream);
