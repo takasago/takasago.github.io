@@ -67,7 +67,11 @@ function pauseVideo(element) {
 
 function callTo(peerId){
   	console.log('callTo: ' + peerId);
-	var call = peer.call(peerId, localStream);
+  	if (localStream == null) {
+   	var call = peer.call(peerId);
+  	} else {
+   	var call = peer.call(peerId, localStream);
+   }
 
 	call.on('stream', function(othersStream){
 		$('#remote_video').prop('src', URL.createObjectURL(othersStream));
