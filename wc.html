@@ -53,7 +53,7 @@
 
     var id = getRandomString();
     var query = getUrlVars();
-    if (id in query) {
+    if ('id' in query) {
       id = query['id'];
     }
     var peer = new Peer(id, {key: 'peerjs', host: 'v2.backspace.jp', port: 9000, path: '/peerjs'});
