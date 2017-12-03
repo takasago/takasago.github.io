@@ -57,6 +57,7 @@
     if ('id' in query) {
       id = query['id'];
     }
+    console.log('main(): id; ' + id);
     var peer = new Peer(id, {key: 'peerjs', host: 'v2.backspace.jp', port: 9000, path: '/peerjs'});
     
     peer.on('open', function(id){
@@ -98,12 +99,13 @@
     	$('#remote-peer-id').val(rid);
     }
 
-    if (startVideo()) {
+    startVideo();
 /*
+    if (startVideo()) {
       if ($('#remote-peer-id').val() != '') {
         $('#call').trigger('click');
       }
-*/
     }
+*/
   </script>
 </html>
