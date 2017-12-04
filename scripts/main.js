@@ -68,16 +68,23 @@ function pauseVideo(element) {
 }
 
 function callTo(peerId){
+  var conn = null;
   	console.log('callTo: ' + peerId);
   	if (localStream == null) {
    	console.log('callTo(): stream; null');
    	console.log('callTo(): data only');
 
-   	var conn = peer.connect(peerId);
+   	conn = peer.connect(peerId);
   	} else {
    	console.log('callTo(): stream; available');
 
-   	var call = peer.call(peerId, localStream);
+   	conn = peer.call(peerId, localStream);
+   }
+
+    if (conn != null) {
+      conn.on('stream', function(othersStream) {
+    		$('#remote_video').prop('src', URL.createObjectURL(othersStream));
+   	});
    }
 }
 
