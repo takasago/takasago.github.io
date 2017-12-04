@@ -7,7 +7,7 @@ function startVideo() {
 		playVideo(localVideo, stream);
 	}).catch(function (error) { // error
    	localStream = null;
-		console.error('getUserMedia error:', error);
+		console.error('getUserMedia() error:', error);
 		return false;
 	});
 	return true;
@@ -75,10 +75,10 @@ function callTo(peerId){
 
    	var conn = peer.connect(peerId);
 
-      conn.on('open', function(id) {
-       console.log('callTo().conn.on: ' + id);
+      conn.on('open', function() {
+       console.log('callTo().conn.on: open');
       });
-   	call.on('stream', function(othersStream){
+   	conn.on('stream', function(othersStream) {
     		$('#remote_video').prop('src', URL.createObjectURL(othersStream));
    	});
       conn.on('close', function() {
