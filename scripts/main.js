@@ -70,46 +70,14 @@ function pauseVideo(element) {
 function callTo(peerId){
   	console.log('callTo: ' + peerId);
   	if (localStream == null) {
-   	console.log('callTo(): ' + 'null');
+   	console.log('callTo(): stream; null');
    	console.log('callTo(): data only');
 
    	var conn = peer.connect(peerId);
-
-      conn.on('open', function() {
-       console.log('callTo().conn.on: open');
-      });
-   	conn.on('stream', function(othersStream) {
-       console.log('callTo().conn.on: stream');
-    		$('#remote_video').prop('src', URL.createObjectURL(othersStream));
-   	});
-      conn.on('close', function() {
-        console.log('callTo().conn.on: close');
-      });
-  
-    	conn.on('error', function(error){
-      		console.error('callTo().conn.on error:', error);
-      		return;
-    	});
   	} else {
-   	console.log('callTo(): video available');
+   	console.log('callTo(): stream; available');
 
    	var call = peer.call(peerId, localStream);
-
-     call.on('open', function(id) {
-       console.log('callTo().call.on: ' + id);
-     });
-   	call.on('stream', function(othersStream){
-       console.log('callTo().call.on: stream');
-    		$('#remote_video').prop('src', URL.createObjectURL(othersStream));
-   	});
-      call.on('close', function() {
-        console.log('callTo().call.on: close');
-      });
-  
-    	call.on('error', function(error){
-      		console.error('callTo().call.on error:', error);
-      		return;
-    	});
    }
 }
 

@@ -114,5 +114,11 @@
       }
     }
 */
+
+    $(window).on('beforeunload', function() {
+        if (!peer.destroyed) {
+            peer.destroy();
+        }
+    });
   </script>
 </html>
