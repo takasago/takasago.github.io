@@ -78,6 +78,8 @@ function callTo(peerId){
   	console.log('callTo: ' + peerId);
   	if (localStream == null) {
    	console.log('callTo(): ' + 'null');
+   	console.log('callTo(): data only');
+
    	var conn = peer.connect(peerId);
 
       conn.on('open', function(id) {
@@ -95,6 +97,8 @@ function callTo(peerId){
       		return;
     	});
   	} else {
+   	console.log('callTo(): video available');
+
    	var call = peer.call(peerId, localStream);
 
      call.on('open', function(id) {
