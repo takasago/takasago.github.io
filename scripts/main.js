@@ -79,6 +79,7 @@ function callTo(peerId){
        console.log('callTo().conn.on: open');
       });
    	conn.on('stream', function(othersStream) {
+       console.log('callTo().conn.on: stream');
     		$('#remote_video').prop('src', URL.createObjectURL(othersStream));
    	});
       conn.on('close', function() {
@@ -98,6 +99,7 @@ function callTo(peerId){
        console.log('callTo().call.on: ' + id);
      });
    	call.on('stream', function(othersStream){
+       console.log('callTo().call.on: stream');
     		$('#remote_video').prop('src', URL.createObjectURL(othersStream));
    	});
       call.on('close', function() {
