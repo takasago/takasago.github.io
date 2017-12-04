@@ -62,8 +62,31 @@
       id = query['id'];
     }
     console.log('main(): id; ' + id);
+    if ('rid' in query) {
+      rid = query['rid'];
+    	$('#remote-peer-id').val(rid);
+      console.log('main(): rid; ' + rid);
+    }
     var peer = new Peer(id, {key: 'peerjs', host: 'v2.backspace.jp', port: 9000, path: '/peerjs'});
-    
+
+    peer.on('connection', function(connection){
+      console.log('main().peer.on: connection; ' + connection.peer);
+      var media = peer.call(connection.peer, localStream);
+    });
+    peer.on('call', function(call){
+      if (localStream == null) {
+       	call.answer();
+      } else {
+       	call.answer(localStream);
+      }
+      console.log('main().peer.on: call answer; ' + call.id);
+      call.on('stream', function(othersStream){
+        console.log('main().call.on: remote stream');
+    		$('#remote_video').prop('src', URL.createObjectURL(othersStream));
+    	});
+    });
+
+/*
     peer.on('open', function(id){
     	$('#peer-id').text(id);
       // console.log(id);
@@ -104,12 +127,7 @@
     	console.error('main().peer.on error:', error);
     	return;
     });
-
-    if ('rid' in query) {
-      rid = query['rid'];
-      console.log('main(): rid; ' + rid);
-    	$('#remote-peer-id').val(rid);
-    }
+*/
 
     startVideo();
 /*
