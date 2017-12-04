@@ -1,21 +1,14 @@
 // start local video
 function startVideo() {
-  localStream = null;
+  // localStream = null;
 	getDeviceStream({video: true, audio: false})
 	.then(function (stream) { // success
 		localStream = stream;
 		playVideo(localVideo, stream);
 	}).catch(function (error) { // error
-    	getDeviceStream({video: false, audio: true})
-    	.then(function (stream) { // success
-    		localStream = stream;
-    		playVideo(localVideo, stream);
-    	}).catch(function (error) { // error
-    		console.error('getUserMedia() error:', error);
-    		return false;
-    	});
-		// console.error('getUserMedia error:', error);
-		// return;
+   	localStream = null;
+		console.error('getUserMedia error:', error);
+		return false;
 	});
 	return true;
 }
