@@ -88,6 +88,7 @@
       }
       console.log('main().peer.on: call answer; ' + call.id);
       call.on('stream', function(othersStream){
+        console.log('main().call.on: remote stream');
     		$('#remote_video').prop('src', URL.createObjectURL(othersStream));
     	});
     	call.on('error', function(error){
