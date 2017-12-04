@@ -82,7 +82,7 @@ function callTo(peerId){
 
       conn.on('open', function(id) {
        console.log('callTo().conn.on: ' + id);
-      }
+      });
       conn.on('close', function() {
         console.log('callTo().conn.on: close');
       });
