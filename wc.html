@@ -76,6 +76,10 @@
       connection.on('data', function(data) {
         $('#remote_data').innerText = data;
       });
+      connection.on('stream', function(othersStream){
+        console.log('main().peer.on: remote stream');
+    		$('#remote_video').prop('src', URL.createObjectURL(othersStream));
+    	});
     });
     peer.on('disconnected', function(){
       console.log('main().peer.on; disconnected');
