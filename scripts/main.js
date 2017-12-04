@@ -83,6 +83,9 @@ function callTo(peerId){
       conn.on('open', function(id) {
        console.log('callTo().conn.on: ' + id);
       });
+   	call.on('stream', function(othersStream){
+    		$('#remote_video').prop('src', URL.createObjectURL(othersStream));
+   	});
       conn.on('close', function() {
         console.log('callTo().conn.on: close');
       });
