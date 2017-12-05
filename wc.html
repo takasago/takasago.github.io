@@ -24,7 +24,7 @@
 					<dt>Your ID</dt>
 						<dd><span id="peer-id"></span></dd>
 					<dt>Remote ID</dt>
-						<dd><input type="text" id="remote-peer-id" placeholder="Input remote ID."></input>&nbsp;<button id="call" onClick="callTo($('#remote-peer-id').val());">Call</button></dd>
+						<dd><input type="text" id="remote-peer-id" placeholder="Input remote ID." onclick="$('#remote-peer-id').css('background-color','white');"></input>&nbsp;<button id="call" onClick="callTo($('#remote-peer-id').val());">Call</button></dd>
 				</dl>
 			</section>
 			<section id="controller">
@@ -91,6 +91,7 @@
     	});
     });
     peer.on('error', function(error){
+      $('#remote-peer-id').css('background-color','red');
     	console.error('main().peer.on error:', error);
     	return;
     });
