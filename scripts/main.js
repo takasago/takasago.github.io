@@ -69,7 +69,8 @@ function pauseVideo(element) {
 
 function callTo(peerId){
   var conn = null;
-  	console.log('callTo: ' + peerId);
+  console.log('callTo: ' + peerId);
+  $('#remote-peer-id').css('background-color','white');
   	if (localStream == null) {
    	console.log('callTo(): stream; null');
    	console.log('callTo(): data only');
