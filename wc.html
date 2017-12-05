@@ -91,7 +91,11 @@
     	});
     });
     peer.on('error', function(error){
-      $('#remote-peer-id').css('background-color','red');
+      if (error.indexOf($id) != -1) {
+        $('#peer-id').css('background-color','red');
+      } else if (error.indexOf($rid) != -1) {
+        $('#remote-peer-id').css('background-color','red');
+      }
     	console.error('main().peer.on error:', error);
     	return;
     });
