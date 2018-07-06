@@ -107,57 +107,7 @@
     	return;
     });
 
-/*
-    peer.on('open', function(id){
-    	$('#peer-id').text(id);
-      // console.log(id);
-    });
-    peer.on('close', function(){
-      console.log('main().peer.on; close');
-    });
-    peer.on('connection', function(connection){
-      console.log('main().peer.on; connection');
-      connection.on('data', function(data) {
-        $('#remote_data').innerText = data;
-      });
-      connection.on('stream', function(othersStream){
-        console.log('main().peer.on: remote stream');
-    		$('#remote_video').prop('src', URL.createObjectURL(othersStream));
-    	});
-    });
-    peer.on('disconnected', function(){
-      console.log('main().peer.on; disconnected');
-    });
-    peer.on('call', function(call){
-      if (localStream == null) {
-       	call.answer();
-      } else {
-       	call.answer(localStream);
-      }
-      console.log('main().peer.on: call answer; ' + call.id);
-      call.on('stream', function(othersStream){
-        console.log('main().call.on: remote stream');
-    		$('#remote_video').prop('src', URL.createObjectURL(othersStream));
-    	});
-    	call.on('error', function(error){
-      	console.error('main().call.on error:', error);
-      	return;
-    	});
-    });
-    peer.on('error', function(error){
-    	console.error('main().peer.on error:', error);
-    	return;
-    });
-*/
-
     startVideo();
-/*
-    if (startVideo()) {
-      if ($('#remote-peer-id').val() != '') {
-        $('#call').trigger('click');
-      }
-    }
-*/
 
     $(window).on('beforeunload', function() {
         if (!peer.destroyed) {
@@ -166,8 +116,3 @@
     });
   </script>
 </html>
-<!--stackedit_data:
-eyJwcm9wZXJ0aWVzIjoiZXh0ZW5zaW9uczpcbiAgcHJlc2V0Oi
-B6ZXJvXG4iLCJoaXN0b3J5IjpbMTU0ODc5MjU3LC0xODY5ODc4
-MjY2LDIwNjYxNDM1NjMsLTExOTAwMTUxNDldfQ==
--->
