@@ -85,7 +85,7 @@ function callTo(peerId){
     if (conn != null) {
       conn.on('stream', function(othersStream) {
         console.log('callTo().conn.on: remote stream');
-    		$('#remote_video').prop('src', URL.createObjectURL(othersStream));
+    		$('#remote_video').prop('srcObject', othersStream);
    	});
    }
 }
@@ -118,5 +118,5 @@ function getRandomString() {
   return randomString;
 }
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzAwNTc5MjE4XX0=
+eyJoaXN0b3J5IjpbMjAzNDc4NDc3LDMwMDU3OTIxOF19
 -->
