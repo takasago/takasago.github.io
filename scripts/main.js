@@ -117,6 +117,3 @@ function getRandomString() {
   randomString += new Date().getSeconds();
   return randomString;
 }
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAzNDc4NDc3LDMwMDU3OTIxOF19
--->
