@@ -87,7 +87,7 @@
       console.log('main().peer.on: call answer; ' + call.id);
       call.on('stream', function(othersStream){
         console.log('main().call.on: remote stream');
-    		$('#remote_video').prop('src', URL.createObjectURL(othersStream));
+    		$('#remote_video').prop('srcObject', othersStream);
     	});
     	call.on('error', function(error){
       	console.error('main().call.on error:', error);
@@ -167,5 +167,6 @@
   </script>
 </html>
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA2NjE0MzU2MywtMTE5MDAxNTE0OV19
+eyJoaXN0b3J5IjpbLTE4Njk4NzgyNjYsMjA2NjE0MzU2MywtMT
+E5MDAxNTE0OV19
 -->
