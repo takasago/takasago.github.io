@@ -49,7 +49,7 @@
 		</footer>
   </body>
   <script type="text/javascript">
-    setTimeout("location._reload_()", 3*60*60*1000);
+    setTimeout("location.reload();", 3*60*60*1000);
   
     let localVideo = document.getElementById('local_video');
     let remoteVideo = document.getElementById('remote_video');
@@ -57,7 +57,7 @@
     let remoteData = $('#remote_data');
     let localStream = null;
 
-    navigator.getUserMedia	= navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 
     var id = getRandomString();
     var rid = null;
@@ -65,11 +65,11 @@
     if ('id' in query) {
       id = query['id'];
     }
- 	 $('#peer-id').text(id);
+    $('#peer-id').text(id);
     console.log('main(): id; ' + id);
     if ('rid' in query) {
       rid = query['rid'];
-    	$('#remote-peer-id').val(rid);
+      $('#remote-peer-id').val(rid);
       console.log('main(): rid; ' + rid);
     }
     var peer = new Peer(id, {key: 'peerjs', host: 'v2.backspace.jp', port: 9000, path: '/peerjs'});
@@ -87,12 +87,12 @@
       console.log('main().peer.on: call answer; ' + call.id);
       call.on('stream', function(othersStream){
         console.log('main().call.on: remote stream');
-    		$('#remote_video').prop('srcObject', othersStream);
-    	});
-    	call.on('error', function(error){
-      	console.error('main().call.on error:', error);
-      	return;
-    	});
+        $('#remote_video').prop('srcObject', othersStream);
+      });
+      call.on('error', function(error){
+        console.error('main().call.on error:', error);
+        return;
+      });
     });
     peer.on('error', function(error){
 /*
@@ -110,9 +110,9 @@
     startVideo();
 
     $(window).on('beforeunload', function() {
-        if (!peer.destroyed) {
-            peer.destroy();
-        }
+      if (!peer.destroyed) {
+        peer.destroy();
+      }
     });
   </script>
 </html>
